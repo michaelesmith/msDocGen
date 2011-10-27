@@ -44,6 +44,7 @@ $console
 					}
 					ob_start();
 					$evalLine987654321 = str_replace(array('<?php'), null, $line987654321);
+					$evalLine987654321 = str_replace(array('__FILE__', '__DIR__'), array("'$filenameIn987654321'", "'".dirname($filenameIn987654321)."'"), $evalLine987654321);
 					eval($evalLine987654321);
 					$result987654321 = trim(ob_get_clean());
 					$output987654321 .= sprintf($result987654321 ? "%s\n///%s\n" : "%s\n", trim($line987654321), str_replace(array("\r\n", "\n\r", "\n", "\r"), "\n///", $result987654321));
